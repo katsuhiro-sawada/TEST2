@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{61535235-2BDE-41F7-A171-6574CCFBCD6A}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="NK_Psoil.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="NK_Psoil">
+        <MSBuild Projects="NK_Psoil.dproj"/>
+    </Target>
+    <Target Name="NK_Psoil:Clean">
+        <MSBuild Projects="NK_Psoil.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NK_Psoil:Make">
+        <MSBuild Projects="NK_Psoil.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="NK_Psoil"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="NK_Psoil:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="NK_Psoil:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
